@@ -13,9 +13,10 @@
 | docker-compose |1.8.0    |             |
 
 # 構成 #
-1. [Chap1](#Chap1)
+1. [Setup](#Setup)
 
-## Chap1
+## Setup
+### Gradle Setup
 **[⬆ back to top](#構成)**
 
 # 参照 #

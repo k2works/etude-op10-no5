@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/etude-op10-no5.iml" filepath="$PROJECT_DIR$/etude-op10-no5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/op10-no5.iml" filepath="$PROJECT_DIR$/.idea/modules/op10-no5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/op10-no5_main.iml" filepath="$PROJECT_DIR$/.idea/modules/op10-no5_main.iml" group="op10-no5" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/op10-no5_test.iml" filepath="$PROJECT_DIR$/.idea/modules/op10-no5_test.iml" group="op10-no5" />
     </modules>
   </component>
 </project>
