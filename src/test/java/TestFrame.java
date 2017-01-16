@@ -1,5 +1,7 @@
 import junit.framework.TestCase;
 
+import java.awt.*;
+
 /**
  * Created by k2works on 2017/01/16.
  */
@@ -8,5 +10,10 @@ public class TestFrame extends TestCase {
     {
         super(name);
     }
-    // public void test???
+
+    public void testScoreNoThrows()
+    {
+        Frame f = new Frame();
+        assertEquals(0, f.getScore());
+    }
 }
