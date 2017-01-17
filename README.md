@@ -1,5 +1,6 @@
 # etude-op-10-no-5
 ===================
+[![CircleCI](https://circleci.com/gh/k2works/etude-op10-no5.svg?style=svg)](https://circleci.com/gh/k2works/etude-op10-no5)
 
 # 目的 #
 ボウリングゲーム
