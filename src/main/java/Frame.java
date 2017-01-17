@@ -6,4 +6,7 @@ public class Frame {
     {
         return 0;
     }
+    public  void add(Throw t)
+    {
+    }
 }
