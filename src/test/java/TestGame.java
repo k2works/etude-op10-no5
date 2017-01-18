@@ -33,6 +33,6 @@ public class TestGame extends TestCase {
         g.add(2);
         assertEquals(18,g.score());
         assertEquals(9, g.scoreForFrame(1));
-        assertEquals(18, g.screForFranme(2));
+        assertEquals(18, g.scoreForFrame(2));
     }
 }
