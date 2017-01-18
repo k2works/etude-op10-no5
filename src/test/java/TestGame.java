@@ -35,4 +35,9 @@ public class TestGame extends TestCase {
         assertEquals(9, g.scoreForFrame(1));
         assertEquals(18, g.scoreForFrame(2));
     }
+
+    public void testSimpleSpare()
+    {
+        Game g = new Game();
+    }
 }
