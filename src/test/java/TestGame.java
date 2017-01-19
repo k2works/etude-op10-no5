@@ -20,6 +20,7 @@ public class TestGame extends TestCase {
     {
         g.add(5);
         assertEquals(5, g.score());
+        assertEquals(1, g.getCurrentFrame());
     }
 
     public void testTwoThrowsNoMark()
