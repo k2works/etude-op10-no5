@@ -23,7 +23,12 @@ public class Game {
         {
             int firstThrow = itsThrows[ball++];
             int secondThrow = itsThrows[ball++];
-            score += firstThrow + secondThrow;
+            int frameScore = firstThrow + secondThrow;
+            // スペアの得点計算には次のフレームの第１投が必要
+            if ( frameScore == 10 )
+                score += frameScore + itsThrows[ball++];
+            else
+                score += frameScore;
         }
 
         return score;
