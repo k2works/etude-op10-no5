@@ -23,15 +23,15 @@ public class Game {
         if (firstThrow == true )
         {
             firstThrow = false;
-            itsCurrentFrame++;
         }
         else
         {
             firstThrow=true;
+            itsCurrentFrame++;
         }
     }
 
-    private int itsCurrentFrame = 0;
+    private int itsCurrentFrame = 1;
     private  boolean firstThrow = true;
 
     public int scoreForFrame(int theFrame)
