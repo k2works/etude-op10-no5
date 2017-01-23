@@ -49,6 +49,7 @@ public class TestGame extends TestCase {
         g.add(7);
         g.add(3);
         assertEquals(13, g.scoreForFrame(1));
+        assertEquals(2, g.getCurrentFrame());
     }
 
     public void testSimpleFrameAfterSpare()
@@ -59,5 +60,6 @@ public class TestGame extends TestCase {
         g.add(2);
         assertEquals(13, g.scoreForFrame(1));
         assertEquals(18, g.scoreForFrame(2));
+        assertEquals(3, g.getCurrentFrame());
     }
 }
