@@ -77,4 +77,17 @@ public class TestGame extends TestCase {
         assertEquals(11,g.getCurrentFrame());
     }
 
+    public void testEndOfArray()
+    {
+        for (int i=0; i<9; i++)
+        {
+            g.add(0);
+            g.add(0);
+        }
+        g.add(2);
+        g.add(8); // 10番目のフレームのスペア
+        g.add(10); // 配列の最後にストライク
+        assertEquals(20, g.score());
+    }
+
 }
