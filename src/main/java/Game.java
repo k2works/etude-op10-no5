@@ -19,17 +19,18 @@ public class Game {
         adjustCurrentFrame(pins);
     }
 
-    private void adjustCurrentFrame(int pins) {
-        if (firstThrow == true )
+    private void adjustCurrentFrame(int pins)
+    {
+        if (firstThrowInFrame == true )
         {
             if( pins == 10 ) // ストライク
                 itsCurrentFrame++;
             else
-                firstThrow = false;
+                firstThrowInFrame = false;
         }
         else
         {
-            firstThrow=true;
+            firstThrowInFrame =true;
             itsCurrentFrame++;
         }
         itsCurrentFrame = Math.min(11, itsCurrentFrame);
@@ -37,20 +38,20 @@ public class Game {
 
     public int scoreForFrame(int theFrame)
     {
-        int ball = 0;
+        ball = 0;
         int score = 0;
         for (int currentFrame = 0;
              currentFrame < theFrame;
              currentFrame++)
         {
-            int firstThrow = itsThrows[ball++];
+            firstThrow = itsThrows[ball++];
             if (firstThrow == 10)
             {
                 score += 10 + itsThrows[ball] + itsThrows[ball+1];
             }
             else
             {
-                int secondThrow = itsThrows[ball++];
+                secondThrow = itsThrows[ball++];
                 int frameScore = firstThrow + secondThrow;
                 // スペアの得点計算には次のフレームの第１投が必要
                 if ( frameScore == 10 )
@@ -61,9 +62,13 @@ public class Game {
         }
         return score;
     }
+    private int ball;
+    private int firstThrow;
+    private int secondThrow;
+
     private int itsScore = 0;
     private int[] itsThrows = new int[21];
     private int itsCurrentThrow = 0;
     private int itsCurrentFrame = 1;
-    private  boolean firstThrow = true;
+    private  boolean firstThrowInFrame = true;
 }
