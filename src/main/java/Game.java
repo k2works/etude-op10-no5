@@ -45,10 +45,10 @@ public class Game {
              currentFrame++)
         {
             firstThrow = itsThrows[ball];
-            if (firstThrow == 10)
+            if (strike())
             {
                 ball++;
-                score += 10 + itsThrows[ball] + itsThrows[ball+1];
+                score += 10 + nextTwoBalls();
             }
             else
             {
@@ -56,6 +56,14 @@ public class Game {
             }
         }
         return score;
+    }
+
+    private boolean strike() {
+        return firstThrow == 10;
+    }
+
+    private int nextTwoBalls() {
+        return itsThrows[ball] + itsThrows[ball + 1];
     }
 
     private int handleSecondThrow() {
