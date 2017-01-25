@@ -71,10 +71,10 @@ public class Game {
         secondThrow = itsThrows[ball+1];
         int frameScore = firstThrow + secondThrow;
         // スペアの得点計算には次のフレームの第１投が必要
-        if ( frameScore == 10 )
+        if (spare())
         {
             ball += 2;
-            score += frameScore + itsThrows[ball];
+            score += 10 + nextBall();
         }
         else
         {
@@ -82,6 +82,14 @@ public class Game {
             score += frameScore;
         }
         return score;
+    }
+
+    private boolean spare() {
+        return (itsThrows[ball] + itsThrows[ball+1]) == 10;
+    }
+
+    private int nextBall() {
+        return itsThrows[ball];
     }
 
     private int ball;
