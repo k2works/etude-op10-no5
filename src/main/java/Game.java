@@ -44,7 +44,6 @@ public class Game {
              currentFrame < theFrame;
              currentFrame++)
         {
-            firstThrow = itsThrows[ball];
             if (strike())
             {
                 ball++;
@@ -59,7 +58,7 @@ public class Game {
     }
 
     private boolean strike() {
-        return firstThrow == 10;
+        return itsThrows[ball] == 10;
     }
 
     private int nextTwoBalls() {
@@ -68,8 +67,6 @@ public class Game {
 
     private int handleSecondThrow() {
         int score = 0;
-        secondThrow = itsThrows[ball+1];
-        int frameScore = firstThrow + secondThrow;
         // スペアの得点計算には次のフレームの第１投が必要
         if (spare())
         {
