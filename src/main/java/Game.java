@@ -5,14 +5,30 @@ public class Game {
     private int itsScore = 0;
     private int[] itsThrows = new int[21];
     private int itsCurrentThrow = 0;
+    private int itsCurrentFrame = 1;
+    private boolean firstThrow = true;
 
     public int score() {
         return itsScore;
     }
 
+    public int getCurrentFrame() {
+        return itsCurrentFrame;
+    }
+
     public void add(int pins) {
         itsThrows[itsCurrentThrow++] = pins;
         itsScore+=pins;
+        adjustCurrentFrame();
+    }
+
+    private void adjustCurrentFrame() {
+        if (firstThrow == true) {
+            firstThrow = false;
+        } else {
+            firstThrow = true;
+            itsCurrentFrame++;
+        }
     }
 
     public int scoreForFrame(int theFrame) {
@@ -27,7 +43,7 @@ public class Game {
             int frameScore = firstThrow + secondThrow;
             // スペアの得点計算には次のフレームの第１投が必要
             if ( frameScore == 10 )
-                score += frameScore + itsThrows[ball++];
+                score += frameScore + itsThrows[ball];
             else
                 score += frameScore;
         }
