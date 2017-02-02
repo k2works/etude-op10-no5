@@ -14,12 +14,6 @@ public class TestGame extends TestCase {
         g = new Game();
     }
 
-    public void testOneThrow() {
-        g.add(5);
-        assertEquals(5, g.score());
-        assertEquals(1, g.getCurrentFrame());
-    }
-
     public void testTwoThrowsNoMark() {
       g.add(5);
       g.add(4);
@@ -43,6 +37,7 @@ public class TestGame extends TestCase {
         g.add(7);
         g.add(3);
         assertEquals(13, g.scoreForFrame(1));
+        assertEquals(2, g.getCurrentFrame());
     }
 
     public void testSimpleFrameAfterSpare() {
@@ -52,5 +47,35 @@ public class TestGame extends TestCase {
         g.add(2);
         assertEquals(13, g.scoreForFrame(1));
         assertEquals(18, g.scoreForFrame(2));
+        assertEquals(18, g.score());
+        assertEquals(3, g.getCurrentFrame());
+    }
+
+    public void testSimpleStrike() {
+        g.add(10);
+        g.add(3);
+        g.add(6);
+        assertEquals(19, g.scoreForFrame(1));
+        assertEquals(28,g.score());
+        assertEquals(3, g.getCurrentFrame());
+    }
+
+    public void testPerfectGame() {
+        for (int i=0; i<12; i++) {
+            g.add(10);
+        }
+        assertEquals(300, g.score());
+        assertEquals(11, g.getCurrentFrame());
+    }
+
+    public void testEndOfArray() {
+        for (int i=0; i<9; i++) {
+            g.add(0);
+            g.add(0);
+        }
+        g.add(2);
+        g.add(8);  // 10番目のフレームのスペア
+        g.add(10); // 配列の最後にストライク
+        assertEquals(20, g.score());
     }
 }

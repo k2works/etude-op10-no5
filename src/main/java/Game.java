@@ -1,3 +1,5 @@
+import java.util.Map;
+
 /**
  * Created by k2works on 2017/01/30.
  */
@@ -9,7 +11,7 @@ public class Game {
     private boolean firstThrow = true;
 
     public int score() {
-        return itsScore;
+        return scoreForFrame(getCurrentFrame()-1);
     }
 
     public int getCurrentFrame() {
@@ -19,16 +21,20 @@ public class Game {
     public void add(int pins) {
         itsThrows[itsCurrentThrow++] = pins;
         itsScore+=pins;
-        adjustCurrentFrame();
+        adjustCurrentFrame(pins);
     }
 
-    private void adjustCurrentFrame() {
+    private void adjustCurrentFrame(int pins) {
         if (firstThrow == true) {
-            firstThrow = false;
+            if( pins == 10 ) // ストライク
+                itsCurrentFrame++;
+            else
+                firstThrow = false;
         } else {
             firstThrow = true;
             itsCurrentFrame++;
         }
+        itsCurrentFrame = Math.min(11, itsCurrentFrame);
     }
 
     public int scoreForFrame(int theFrame) {
@@ -39,13 +45,18 @@ public class Game {
                 currentFrame++)
         {
             int firstThrow = itsThrows[ball++];
-            int secondThrow = itsThrows[ball++];
-            int frameScore = firstThrow + secondThrow;
-            // スペアの得点計算には次のフレームの第１投が必要
-            if ( frameScore == 10 )
-                score += frameScore + itsThrows[ball];
-            else
-                score += frameScore;
+            if (firstThrow == 10) {
+                score += 10 + itsThrows[ball] + itsThrows[ball+1];
+            }
+            else {
+                int secondThrow = itsThrows[ball++];
+                int frameScore = firstThrow + secondThrow;
+                // スペアの得点計算には次のフレームの第１投が必要
+                if ( frameScore == 10 )
+                    score += frameScore + itsThrows[ball];
+                else
+                    score += frameScore;
+            }
         }
         return score;
     }
